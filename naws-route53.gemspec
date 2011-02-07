@@ -11,7 +11,9 @@ Gem::Specification.new do |s|
   s.homepage    = "http://rubygems.org/gems/naws-route53"
   s.summary     = %q{A flexible implementation of the Amazon Route 53 API}
   s.description = %q{A flexible implementation of the Amazon Route 53 API}
-
+  
+  #s.add_dependency('naws')
+  
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }

@@ -3,7 +3,7 @@ require 'naws/context'
 
 class Naws::Route53::Context < Naws::Context
   
-  BASE_URI = URI.parse("http://route53.amazonaws.com/2010-10-01").freeze
+  BASE_URI = URI.parse("https://route53.amazonaws.com/2010-10-01").freeze
   XMLNS = "https://route53.amazonaws.com/doc/2010-10-01/".freeze
 
   def initialize(options = {})

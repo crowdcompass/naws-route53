@@ -20,7 +20,7 @@ describe Naws::Route53, "when used against the server" do
     r = @cx.execute :list_hosted_zones
     p r
     p r.hosted_zones
-    r = @cx.execute :get_hosted_zone, :zone_id => "/hostedzone/ZPPJKFJ5B07YQ"
+    r = @cx.execute :get_hosted_zone, :zone_id => "ZPPJKFJ5B07YQ"
     p r
   end
 

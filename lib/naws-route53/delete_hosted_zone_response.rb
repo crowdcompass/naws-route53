@@ -1,7 +1,7 @@
 require 'naws/xml_response'
 require 'naws-route53/common/change'
 
-class Naws::Route53::CreateHostedZoneResponse < Naws::XmlResponse
+class Naws::Route53::DeleteHostedZoneResponse < Naws::XmlResponse
   include Naws::Route53::Common::Change
 
   def zone_id

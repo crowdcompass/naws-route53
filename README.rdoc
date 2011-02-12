@@ -1,0 +1,9 @@
+= Naws::Route53
+== A thin interface to AWS Route 53
+
+This gem is still under development. It relies on 
+naws[http://github.com/mboeh/naws] and is extended by 
+naws-route53-models[http://github.com/mboeh/naws-route53-models].
+
+More specs and documentation are coming soon. This gem is not ready for
+production use, but I welcome any input.

@@ -9,6 +9,9 @@ if REAL_AWS_ID.nil?
   raise "You need to set the TEST_AWS_ID and TEST_AWS_KEY environment variables"
 end
 
+## NOTE: you need to use an actual zone to test. That's why there's nothing here at the moment.
+## Amazon says in their docs that they'll kick you off the service if you create a zone for a domain you don't own.
+
 describe Naws::Route53, "when used against the server" do
  
   before do
@@ -16,12 +19,7 @@ describe Naws::Route53, "when used against the server" do
   end
 
   it "should successfully create zones" do
-    #@cx.execute :create_hosted_zone, :name => "crowdcompass.com", :caller_reference => "crowdcompass.com"
-    r = @cx.execute :list_hosted_zones
-    p r
-    p r.hosted_zones
-    r = @cx.execute :get_hosted_zone, :zone_id => "ZPPJKFJ5B07YQ"
-    p r
+    pending
   end
 
 end

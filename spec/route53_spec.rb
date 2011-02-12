@@ -16,18 +16,15 @@ describe Naws::Route53 do
     req1.uri.path.should == "/2010-10-01/hostedzone"
     req1.to_xml.should match(/<Name>/)
     req1.to_xml.should match("crowdcompass.com")
-    resp1 = req1.execute
-    resp2 = @cx.execute_request(req2)
-    resp1.should be_kind_of(Naws::Route53::CreateHostedZoneResponse)
   end
 
   it "should parse responses" do
     resp = Naws::Route53::CreateHostedZoneResponse.new(:status => 201, :body => CREATE_HOSTED_ZONE_RESPONSE_XML, :headers => {})
     # We extract out the more significant fields for easy access. The rest are available
     # by XPath.
-    resp.change_id.should == "/change/C1PA6795UKMFR9"
-    resp.zone_id.should == "/hostedzone/Z1PA6795UKMFR9"
-    resp.status.should == "PENDING"
+    resp.change_id.should == "C1PA6795UKMFR9"
+    resp.zone_id.should == "Z1PA6795UKMFR9"
+    resp.change_status.should == "PENDING"
     resp.name_servers.should have(4).items
     resp.name_servers.should include("ns-1112.awsdns-31.org")
   end
@@ -40,6 +37,6 @@ describe Naws::Route53 do
     })
     cx = Naws::Route53::Context.new(:access_key_id => AWS_ID, :secret_access_key => AWS_KEY, :transport => dummy)
     resp = cx.execute :create_hosted_zone, :name => "crowdcompass.com", :caller_reference => "crowdcompass.com"
-    resp.change_id.should == "/change/C1PA6795UKMFR9"
+    resp.change_id.should == "C1PA6795UKMFR9"
   end
 end

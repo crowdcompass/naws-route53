@@ -13,4 +13,6 @@ class Naws::Route53::ListHostedZonesResponse < Naws::XmlResponse
     end
   end
 
+  alias collection_items hosted_zones
+
 end

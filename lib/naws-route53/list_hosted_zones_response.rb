@@ -15,4 +15,12 @@ class Naws::Route53::ListHostedZonesResponse < Naws::XmlResponse
 
   alias collection_items hosted_zones
 
+  def is_truncated?
+    xpath("//IsTruncated") == "true"
+  end
+
+  def next_item_offset
+    { :Marker => xpath("//NextMarker") }
+  end
+
 end

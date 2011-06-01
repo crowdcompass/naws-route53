@@ -12,6 +12,22 @@ class Naws::Route53::ListResourceRecordSetsResponse < Naws::XmlResponse
       h[:records] = [h[:records]] unless h[:records].kind_of?(Array)
     end
   end
+  
+  def is_truncated?
+    xpath("//IsTruncated") == "true"
+  end
+
+  def next_record_type
+    xpath("//NextRecordType")
+  end
+
+  def next_record_name
+    xpath("//NextRecordName")
+  end
+
+  def next_item_offset
+    { :type => next_record_type, :name => next_record_name }
+  end
 
   alias collection_items resource_record_sets
 
